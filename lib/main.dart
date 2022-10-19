@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:test_sunilsir/models/entries.dart';
 import 'package:test_sunilsir/newfile.dart';
@@ -148,14 +149,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     Row(
                       children: [
                      Text('Categories',style: TextStyle(color: Color(0xff000002),fontSize: 20,fontWeight: FontWeight.bold),),
-                     Icon(Icons.plus_one)
+                     Icon(Icons.add,color: Colors.orangeAccent,)
                       ],
                     ),
                     Row(
                       children: [
                         Container(
                           height: 40,
-                          width: 70,
+                          width: 85,
                           decoration: BoxDecoration(
                             color: Color.fromARGB(255, 248, 245, 245),
                             borderRadius: BorderRadius.circular(60)),
@@ -175,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         SizedBox(width: 15,),
                         Container(
                           height: 40,
-                          width: 70,
+                         width: 85,
                           decoration: BoxDecoration(
                             color: Color.fromARGB(255, 248, 245, 245),
                             borderRadius: BorderRadius.circular(60)),
@@ -193,7 +194,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         SizedBox(width: 15,),
                         Container(
                           height: 40,
-                          width: 70,
+                         width: 85,
                           decoration: BoxDecoration(
                             color: Color.fromARGB(255, 248, 245, 245),
                             borderRadius: BorderRadius.circular(60)),
@@ -211,7 +212,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         SizedBox(width: 15,),
                         Container(
                           height: 40,
-                          width: 70,
+                          width: 85,
                           decoration: BoxDecoration(
                             color: Color.fromARGB(255, 248, 245, 245),
                             borderRadius: BorderRadius.circular(60)),
@@ -233,7 +234,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       
                       children: [
                      Text('Popular',style: TextStyle(color: Color(0xff000002),fontSize: 20,fontWeight: FontWeight.bold),),
-                     Icon(Icons.plus_one)
+                     Icon(Icons.add,color: Colors.orangeAccent,)
                       ],
                     ),
               
@@ -249,9 +250,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         scrollDirection: Axis.vertical,
                         itemBuilder: (BuildContext context, int index) {
                               return New_page(
-                                 images: '${images[index]}', calories: '${calories[index]}', doller: '${doller[index]}',
-                                 names: '${names[index]}',
-                                 );
+                                  images: 'http://jayanthi10.pythonanywhere.com/media/73_2_QExMmwu.jpg${list!.data![index].image}',
+                          calories: '${list!.data![index].description}', 
+                         doller: '${list!.data![index].price}',
+                          names: '${list!.data![index].productId}');
+                                 
                               
                         }),
                       )
